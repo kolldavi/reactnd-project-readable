@@ -31,8 +31,6 @@ function posts(state = [], action) {
       return action.posts;
     case ADD_POST:
       const { post } = action;
-      console.log('inside reduce post', post);
-      console.log('inside reduce state', state);
       return [
         ...state,
         {

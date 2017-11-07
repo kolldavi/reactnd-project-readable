@@ -23,7 +23,6 @@ class AddPost extends React.Component {
     const { title, author, category, body } = values;
 
     API.addPost(id, timestamp, title, body, author, category).then(post => {
-      console.log(post);
       this.props.dispatch(addPost(post));
       this.setState({
         fireRedirect: true,
