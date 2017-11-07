@@ -1,0 +1,38 @@
+{
+  "name": "frontend",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "form-serialize": "^0.7.2",
+    "husky": "^0.14.3",
+    "lint-staged": "^4.3.0",
+    "lodash.sortby": "^4.7.0",
+    "prettier": "^1.7.4",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-icons": "^2.2.7",
+    "react-redux": "^5.0.6",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.0.14",
+    "redux": "^3.7.2",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.2.0"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,json,css}": [
+      "prettier --single-quote --write",
+      "git add"
+    ]
+  },
+  "scripts": {
+    "precommit": "lint-staged",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "eslint": "^4.9.0",
+    "eslint-plugin-react": "^7.4.0"
+  }
+}

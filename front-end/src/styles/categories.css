@@ -1,0 +1,19 @@
+.category {
+  list-style-type: none;
+  padding: 0;
+  border-radius: 5%;
+}
+.category li {
+  padding: 8px 0;
+  font-size: 20px;
+}
+.category li a {
+  text-decoration: none;
+  color: #333;
+  display: inline-block;
+  width: 100%;
+}
+.category li a:hover {
+  color: #4990e2;
+  background-color: #d3d3d3;
+}

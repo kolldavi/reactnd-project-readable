@@ -1,0 +1,98 @@
+.post-list {
+  list-style-type: none;
+}
+.post-list li {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding: 32px 0;
+}
+.post-list li:first-child {
+  padding-top: 0;
+}
+
+.post-ranking {
+  text-align: center;
+  color: #777;
+  margin-right: 32px;
+}
+.order-btns {
+  font-size: 20px;
+}
+.post-ranking-value {
+  padding-top: 6px;
+}
+
+.ranking-button {
+  display: inline-block;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  padding: 0;
+
+  color: #777;
+}
+.ranking-button:hover {
+  color: #333;
+}
+
+.post h4 a {
+  text-decoration: none;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+.post h4 a:hover {
+  text-decoration: underline;
+}
+.post h3 {
+  font-size: 32px;
+  margin: 16px 0;
+}
+.post h3 a {
+  color: #333;
+  text-decoration: none;
+}
+.post h3 a:hover {
+  text-decoration: underline;
+}
+
+.post-single,
+.post-body {
+  width: 100%;
+  max-width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.add-new-post {
+  background-color: #ddd;
+  padding: 12px 20px;
+}
+.post-inputbox {
+  margin-right: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+.post-inputbox-lable {
+  float: left;
+  width: 100px;
+}
+
+.post-single .post-meta {
+  margin-bottom: 48px;
+  color: #777;
+}
+.post-author {
+  padding-right: 50px;
+}
+.post-body {
+  margin-bottom: 36px;
+}
+
+.post-controls {
+  margin-bottom: 48px;
+}
