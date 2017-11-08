@@ -76,7 +76,14 @@
   margin: 8px 0;
   box-sizing: border-box;
 }
-
+.edit-title {
+  width: 100%;
+}
+.edit-body {
+  width: 100%;
+  max-width: 100%;
+  height: 200px;
+}
 .post-inputbox-lable {
   float: left;
   width: 100px;
@@ -95,4 +102,16 @@
 
 .post-controls {
   margin-bottom: 48px;
+}
+
+.delet-post {
+  padding-top: 10px;
+  cursor: pointer;
+  color: red;
+  text-decoration: underline;
+}
+
+.delet-post:hover {
+  text-decoration: none;
+  text-shadow: 1px 1px 1px #555;
 }
