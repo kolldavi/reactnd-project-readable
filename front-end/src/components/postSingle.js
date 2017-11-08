@@ -3,9 +3,8 @@ import * as API from '../utils/api';
 import CommentList from './commentList';
 import AddComment from './addComment';
 import { connect } from 'react-redux';
-import { deletePost, editPost } from '../actions/post';
+import { deletePost, editPost, getPosts } from '../actions/post';
 import serializeForm from 'form-serialize';
-import { getPosts } from '../actions/post';
 import '../styles/posts.css';
 
 class PostSingle extends React.Component {

@@ -11,6 +11,7 @@ import notFound from './notFound';
 import Category from './category';
 import { getPosts } from '../actions/post';
 import { getCategories } from '../actions/categories';
+
 class App extends Component {
   componentDidMount() {
     API.getAllPosts().then(posts => {

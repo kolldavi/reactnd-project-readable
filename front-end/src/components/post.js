@@ -5,8 +5,8 @@ import { votePost, deletePost, getPosts } from '../actions/post';
 import { connect } from 'react-redux';
 import FaCaretUp from 'react-icons/lib/fa/caret-up';
 import FaCaretDown from 'react-icons/lib/fa/caret-down';
-
 import '../styles/posts.css';
+
 class Post extends Component {
   state = {
     commentCount: 0

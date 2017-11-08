@@ -3,7 +3,9 @@ import Post from './post';
 import '../styles/posts.css';
 import { connect } from 'react-redux';
 import sortBy from 'lodash/sortBy';
+import FlatButton from 'material-ui/FlatButton';
 const uuid = require('uuid');
+
 class PostList extends React.Component {
   constructor(props) {
     super(props);
@@ -34,30 +36,30 @@ class PostList extends React.Component {
       <div>
         <div className="order-btns">
           Sort by Votes
-          <button
+          <FlatButton
             key={uuid.v4()}
             onClick={() => this.sort('voteScore')}
-            className="btn-link">
-            Most Votes
-          </button>
-          <button
+            label="Most Votes"
+            primary={true}
+          />
+          <FlatButton
             key={uuid.v4()}
             onClick={() => this.sort('voteScore', true)}
-            className="btn-link">
-            Least Votes
-          </button>
-          <button
+            label="Least Votes"
+            primary={true}
+          />
+          <FlatButton
             key={uuid.v4()}
             onClick={() => this.sort('timestamp')}
-            className="btn-link">
-            Newest First
-          </button>
-          <button
+            label="Newest First"
+            primary={true}
+          />
+          <FlatButton
             key={uuid.v4()}
             onClick={() => this.sort('timestamp', true)}
-            className="btn-link">
-            Oldest First
-          </button>
+            label="Oldest First"
+            primary={true}
+          />
           <hr />
         </div>
         <ul className="post-list">
