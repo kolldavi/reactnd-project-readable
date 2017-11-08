@@ -7,6 +7,7 @@ import PostList from './postList';
 import CategoryList from './categoryList';
 import AddPost from './addPost';
 import PostSingle from './postSingle';
+import notFound from './notFound';
 import Category from './category';
 import { getPosts } from '../actions/post';
 import { getCategories } from '../actions/categories';
@@ -51,13 +52,19 @@ class App extends Component {
                 </div>
               )}
             />
+
             <Route
               path="/add-post"
               component={AddPost}
               category={this.props.categories}
             />
-            <Route path="/:category/:id" component={PostSingle} />
+            <Route
+              path="/:category/:id"
+              component={PostSingle}
+              editing={false}
+            />
             <Route path="/:category" component={Category} />
+            <Route path="*" component={notFound} />
           </Switch>
         </main>
       </div>
