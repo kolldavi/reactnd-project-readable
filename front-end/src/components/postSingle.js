@@ -7,6 +7,7 @@ import { deletePost, editPost } from '../actions/post';
 import serializeForm from 'form-serialize';
 import { getPosts } from '../actions/post';
 import '../styles/posts.css';
+
 class PostSingle extends React.Component {
   state = {
     post: {},
@@ -16,6 +17,10 @@ class PostSingle extends React.Component {
     API.getPost(this.props.match.params.id).then(post => {
       this.setState({ post });
     });
+
+    if (this.props.location.query !== undefined) {
+      this.setState({ isEditing: true });
+    }
   }
 
   deletePost = postId => {
@@ -51,7 +56,6 @@ class PostSingle extends React.Component {
 
   render() {
     const { post, isEditing } = this.state;
-
     return (
       <div className="post-single">
         {post.deleted === true || Object.keys(post).length === 0 ? (
@@ -64,7 +68,7 @@ class PostSingle extends React.Component {
                   <input
                     type="text"
                     name="title"
-                    className="inline-input"
+                    className="edit-title"
                     defaultValue={post.title}
                   />
                 </h1>
@@ -74,12 +78,14 @@ class PostSingle extends React.Component {
                 <p className="post-body">
                   <textarea
                     name="body"
-                    className="inline-input"
+                    className="edit-body"
                     defaultValue={post.body}
                   />
                 </p>
                 <div className="post-controls">
-                  <button className="btn push-right">Update Post</button>
+                  <button className="btn-link btn push-right">
+                    Update Post
+                  </button>
                   <button
                     className="btn-link"
                     onClick={() => this.cancelEdit()}>
