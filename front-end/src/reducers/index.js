@@ -1,25 +1,9 @@
 import { combineReducers } from 'redux';
-import {
-  GET_POSTS,
-  ADD_POST,
-  EDIT_POST,
-  DELETE_POST,
-  VOTE_POST
-} from '../actions/post';
-
-import {
-  GET_COMMENTS,
-  ADD_COMMENT,
-  EDIT_COMMENT,
-  DELETE_COMMENT,
-  VOTE_COMMENT
-} from '../actions/comment';
-
-import { GET_CATEGORIES } from '../actions/categories';
+import * as types from '../actions/types';
 
 function categories(state = [], action) {
   switch (action.type) {
-    case GET_CATEGORIES:
+    case types.GET_CATEGORIES:
       return action.categories;
     default:
       return state;
@@ -27,9 +11,9 @@ function categories(state = [], action) {
 }
 function posts(state = [], action) {
   switch (action.type) {
-    case GET_POSTS:
+    case types.GET_POSTS:
       return action.posts;
-    case ADD_POST:
+    case types.ADD_POST:
       const { post } = action;
       return [
         ...state,
@@ -44,7 +28,7 @@ function posts(state = [], action) {
           deleted: post.deleted
         }
       ];
-    case EDIT_POST:
+    case types.EDIT_POST:
       return state.map(
         post =>
           post.id === action.id
@@ -55,7 +39,7 @@ function posts(state = [], action) {
               }
             : post
       );
-    case DELETE_POST:
+    case types.DELETE_POST:
       return state.map(
         post =>
           post.id === action.post.id
@@ -65,7 +49,7 @@ function posts(state = [], action) {
               }
             : post
       );
-    case VOTE_POST:
+    case types.VOTE_POST:
       return state.map(
         post =>
           post.id === action.post.id
@@ -82,9 +66,9 @@ function posts(state = [], action) {
 
 function comments(state = [], action) {
   switch (action.type) {
-    case GET_COMMENTS:
+    case types.GET_COMMENTS:
       return action.comments;
-    case ADD_COMMENT:
+    case types.ADD_COMMENT:
       const { comment } = action;
       return [
         ...state,
@@ -99,7 +83,7 @@ function comments(state = [], action) {
           parentDeleted: comment.parentDeleted
         }
       ];
-    case EDIT_COMMENT:
+    case types.EDIT_COMMENT:
       return state.map(
         comment =>
           comment.id === action.id
@@ -110,7 +94,7 @@ function comments(state = [], action) {
               }
             : comment
       );
-    case DELETE_COMMENT:
+    case types.DELETE_COMMENT:
       return state.map(
         comment =>
           comment.id === action.comment.id
@@ -120,7 +104,7 @@ function comments(state = [], action) {
               }
             : comment
       );
-    case VOTE_COMMENT:
+    case types.VOTE_COMMENT:
       return state.map(
         comment =>
           comment.id === action.comment.id

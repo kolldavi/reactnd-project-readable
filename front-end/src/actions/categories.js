@@ -1,8 +1,8 @@
-export const GET_CATEGORIES = 'GET_CATEGORIES';
+import * as types from './types';
 
 export function getCategories({ categories }) {
   return {
-    type: GET_CATEGORIES,
+    type: types.GET_CATEGORIES,
     categories
   };
 }

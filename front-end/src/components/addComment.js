@@ -15,11 +15,9 @@ class AddComment extends React.Component {
   submitComment = e => {
     e.preventDefault();
 
-    console.log(e);
     const values = serializeForm(e.target, { hash: true });
     const id = uuid.v4();
     const timestamp = Date.now();
-    console.log(values);
     const parentId = this.props.postId;
     const { author, body } = values;
 
