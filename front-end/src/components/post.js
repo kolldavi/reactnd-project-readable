@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import * as API from '../utils/api';
 import { Link } from 'react-router-dom';
-import { votePost } from '../actions/post';
+import { votePost, deletePost, getPosts } from '../actions/post';
 import { connect } from 'react-redux';
 import FaCaretUp from 'react-icons/lib/fa/caret-up';
 import FaCaretDown from 'react-icons/lib/fa/caret-down';
+
 import '../styles/posts.css';
 class Post extends Component {
   state = {
@@ -15,6 +16,18 @@ class Post extends Component {
     API.votePost(postId, option).then(post => {
       this.props.dispatch(votePost({ post }));
     });
+  };
+
+  deletePost = postId => {
+    Promise.resolve(API.deletePost(postId))
+      .then(post => {
+        this.props.dispatch(deletePost(post));
+      })
+      .then(() => {
+        API.getAllPosts().then(posts => {
+          this.props.dispatch(getPosts({ posts }));
+        });
+      });
   };
 
   componentDidMount() {
@@ -62,6 +75,21 @@ class Post extends Component {
               Date Created:
               {new Date(post.timestamp).toLocaleString()}
             </span>
+            <br />
+
+            <p className="delet-post" onClick={() => this.deletePost(post.id)}>
+              {' '}
+              Delete Post
+            </p>
+            <p>
+              <Link
+                to={{
+                  pathname: `/${post.category}/${post.id}`,
+                  query: { isEditing: true }
+                }}>
+                Edit Post
+              </Link>
+            </p>
           </div>
         </div>
       </li>
